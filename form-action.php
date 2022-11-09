@@ -12,8 +12,8 @@ if(isset($_POST['send'])){
 
     mysqli_query($connection, $request);
 
-    header('https://gamma-sc.com/');
-    header('https://gamma-sc.com/contact.html');
+    header('location:https://gamma-sc.com/');
+    header('location:https://gamma-sc.com/contact.html');
 } else {
     echo 'something went wrong try again';
 }
