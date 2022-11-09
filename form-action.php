@@ -1,6 +1,13 @@
 <?php
 
-$connection = mysqli_connect('localhost','root','','form_db');
+$servername = 'gamma-sc.com';
+$name = 'name';
+$email = 'name';
+$phone = 'phone';
+$message = 'message';
+$form_db = 'form_message';
+
+$connection = new mysqli_connect($servername, $name, $email, $phone, $message, $form_db);
 
 if(isset($_POST['send'])){
     $name = $_POST['name'];
