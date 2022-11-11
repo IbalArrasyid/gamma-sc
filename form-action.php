@@ -13,7 +13,7 @@ if ($conn->connect_error) {
     die("something went wrong try again: " . $conn->connect_error);
   }
 
-  $stmt = $conn->prepare("insert into form_message"(name, email, phone, message) value('$name','$email','$phone','$message')");
+  $stmt = $conn->prepare("insert into form_message"(name, email, phone, message) value(?, ?, ?, ?)");
   $stmt->bind_param("ssss", $name, $email, $phone, $message);
 
   $name = "iqbal";
