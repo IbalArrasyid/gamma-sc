@@ -1,13 +1,13 @@
 <?php
 
-$servername = 'gamma-sc.com';
+$servername = 'dns1.p01.nsone.net';
 $name = 'name';
 $email = 'name';
 $phone = 'phone';
 $message = 'message';
-$form_db = 'form_message';
+$dbname = 'form_db';
 
-$connection = new mysqli_connect($servername, $name, $email, $phone, $message, $form_db);
+$connection = new mysqli_connect($servername, $name, $email, $phone, $message, $dbname);
 
 if(isset($_POST['send'])){
     $name = $_POST['name'];
