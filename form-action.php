@@ -1,6 +1,6 @@
 <?php
 
-$servername = 'dns1.p01.nsone.net';
+$servername = 'dns1.p01.nsone.net', 'dns2.p01.nsone.net', 'dns3.p01.nsone.net', 'dns4.p01.nsone.net';
 $name = 'name';
 $email = 'name';
 $phone = 'phone';
@@ -9,20 +9,21 @@ $dbname = 'form_db';
 
 $connection = new mysqli_connect($servername, $name, $email, $phone, $message, $dbname);
 
-if(isset($_POST['send'])){
-    $name = $_POST['name'];
-    $email = $_POST['email'];
-    $phone = $_POST['phone'];
-    $message = $_POST['message'];
+if ($conn->connect_error) {
+    die("something went wrong try again: " . $conn->connect_error);
+  }
 
-    $request = " insert into form_message(name, email, phone, message) value('$name','$email', '$phone', '$message')";
+  $stmt = $conn->prepare("insert into form_message"(name, email, phone, message) value('$name','$email','$phone','$message')");
+  $stmt->bind_param("ssss", $name, $email, $phone, $message);
 
-    mysqli_query($connection, $request);
+  $name = "iqbal";
+  $email = "iqbal@gmail.com";
+  $phone = "81310946588";
+  $message = "Hallo!. Im Interesting";
 
-    header('location:https://gamma-sc.com/');
-    header('location:https://gamma-sc.com/contact.html');
-} else {
-    echo 'something went wrong try again';
-}
+echo "New records created successfully";
+
+$stmt->close();
+$conn->close();
 
 ?>
