@@ -199,49 +199,49 @@
       <div class="box">
          <img src="images/service-5.png" alt="Civil & Infrastructure Planning">
          <h3>Infrastructure Planning</h3>
-         <p>Suported by competent experts in their discipline, we has contributed in strategic infrastructure planning in Indonesia. The planning process involving multi discipline experts and large area, have created our project planning become mater piece in each areas.         </p>
+         <p>Infrastructure Planning is the process of planning, developing, and managing infrastructure systems required to support community needs, such as roads, bridges, water networks, drainage, and other public facilities. This service involves analyzing the infrastructure needs required to support the growth and development of a community, and selecting the best solutions to achieve them.</p>
       </div>
 
       <div class="box">
          <img src="images/service-6.png" alt="Geotechnical Design">
          <h3>Geotechnical Design</h3>
-         <p>We assist our client to carry out an appropriate geotechnical studies for infrastructure development. Our service mainly divided into geotechnical design and geotechnical surveys. Our geotechnical design team is handled experienced engineers having worked on various project.</p>
+         <p>Geotechnical Design is the process of designing and engineering geotechnical systems, such as foundations, slopes, and earthworks, to ensure their stability and safety. It is aimed at helping clients design geotechnical systems that are safe, cost-effective, and sustainable.</p>
       </div>
 
       <div class="box">
          <img src="images/service-1.png" alt="Geotechnical Survey">
          <h3>Geotechnical Survey</h3>
-         <p>We drill and investigate is under earth surface. Since nature gives the opportunity to dig the knowledge inside it, we gather all potency to drill and investigate the soil, without disturb the environment.</p>
+         <p>Geotechnical Survey is the process of collecting and analyzing data on the geotechnical characteristics of a site, such as soil and rock properties, to assess their suitability for a particular project. It is aimed at helping clients understand the geotechnical characteristics of a site and make informed decisions about its use and development.</p>
       </div>
 
       <div class="box">
          <img src="images/service-8.png" alt="Drafting Service">
          <h3>Drafting Service</h3>
-         <p>We understand that good design results in a good building. To achieve a good design, design should be easy to understood. We have a good drafters team to do that. The project we have worked on are as follows.</p>
+         <p>Drafting Service is the process of creating detailed technical drawings and plans, such as architectural, structural, and mechanical drawings, to communicate design concepts and specifications. This service involves using computer-aided design (CAD) software to create accurate and visually appealing drawings, and working with clients to ensure that the final product meets their needs and expectations.</p>
       </div>
 
       <div class="box">
          <img src="images/service-4.png   " alt="Drafting Service">
          <h3>Geophysical Survey</h3>
-         <p>We understand that good design results in a good building. To achieve a good design, design should be easy to understood. We have a good drafters team to do that. The project we have worked on are as follows.</p>
+         <p>Geophysical Survey is the process of collecting and analyzing data on the physical properties of the earth, such as its composition and structure, using various geophysical techniques.</p>
       </div>
 
       <div class="box">
          <img src="images/service-3.png" alt="Drafting Service">
          <h3>Topographical Survey</h3>
-         <p>We understand that good design results in a good building. To achieve a good design, design should be easy to understood. We have a good drafters team to do that. The project we have worked on are as follows.</p>
+         <p>Topographical Survey is the process of collecting and analyzing data on the features and contours of a site, such as its elevations, slopes, and vegetation, to create a detailed map of the area. This service involves using specialized equipment to measure and record the topographical features of a site, and creating a map that accurately represents these features.</p>
       </div>
 
       <div class="box">
          <img src="images/service-7.png" alt="Drafting Service">
          <h3>Detailed Engineering Design</h3>
-         <p>We understand that good design results in a good building. To achieve a good design, design should be easy to understood. We have a good drafters team to do that. The project we have worked on are as follows.</p>
+         <p>This service involves analyzing the technical and operational requirements of a project, and developing detailed design plans that meet these requirements. It is aimed at helping clients design systems and projects that are safe, efficient, and meet the needs of their users.</p>
       </div>
 
       <div class="box">
          <img src="images/service-6.png" alt="Geotechnical Design">
          <h3>Structural Design</h3>
-         <p>We assist our client to carry out an appropriate geotechnical studies for infrastructure development. Our service mainly divided into geotechnical design and geotechnical surveys. Our geotechnical design team is handled experienced engineers having worked on various project.</p>
+         <p>Structural Design is the process of designing and engineering the structural components of a building or structure, such as its foundations, walls, beams, and columns, to ensure its stability and safety. This service involves analyzing the loads and forces acting on a structure, and designing appropriate structural elements to resist these loads and forces.</p>
       </div>
 
    </div>
@@ -565,9 +565,9 @@
          <input type="text" placeholder="Name" name="name" class="box">
          <input type="email" placeholder="Email" name="email" class="box">
          <input type="number" placeholder="Phone" name="phone" class="box">
-         <textarea name="" placeholder="Message" name="message" class="box" id="" cols="30" rows="10" ></textarea>
+         <textarea name="message" placeholder="Message" class="box" id="" cols="30" rows="10"></textarea>
          <input type="submit" value="send message" class="btn" name="send">
-      </form>
+       </form>       
 
    </div>
 
@@ -708,7 +708,29 @@
 </section>
 
 <!-- footer section ends -->
-
+<script>
+   // Get the form element
+   var form = document.getElementById('form');
+   
+   // Add a submit event listener to the form
+   form.addEventListener('submit', function(event) {
+     // Prevent the default form submission behavior
+     event.preventDefault();
+     
+     // Get the form data
+     var formData = new FormData(event.target);
+     
+     // Send the form data to the server using an HTTP request
+     fetch('form-action.php', {
+       method: 'POST',
+       body: formData
+     })
+     .then(function(response) {
+       // Do something with the response from the server
+       console.log(response);
+     });
+   });
+ </script>
 
 
 
