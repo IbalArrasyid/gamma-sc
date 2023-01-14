@@ -1,30 +1,31 @@
 <?php
 
-$servername = 'dns1.p01.nsone.net', 'dns2.p01.nsone.net', 'dns3.p01.nsone.net', 'dns4.p01.nsone.net';
-$name = 'name';
-$email = 'name';
-$phone = 'phone';
-$message = 'message';
-$dbname = 'form_db';
+$servername = "gamma-sc.com"; // or the hostname or IP address of the MySQL server
+$username = "username";
+$password = "password";
+$dbname = "form_db";
 
-$connection = new mysqli_connect($servername, $name, $email, $phone, $message, $dbname);
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
 
+// Check connection
 if ($conn->connect_error) {
-    die("something went wrong try again: " . $conn->connect_error);
-  }
+    die("Connection failed: " . $conn->connect_error);
+}
 
-  $stmt = $conn->prepare("insert into form_message(name, email, phone, message) value(?, ?, ?, ?)");
+// Check if the form was submitted
+if (isset($_POST['name']) && isset($_POST['email']) && isset($_POST['phone']) && isset($_POST['message'])) {
+  $name = $_POST['name'];
+  $email = $_POST['email'];
+  $phone = $_POST['phone'];
+  $message = $_POST['message'];
+  
+  // Insert the data into the database
+  $sql = "INSERT INTO form_data (name, email, phone, message) VALUES (?, ?, ?, ?)";
+  $stmt = $conn->prepare($sql);
   $stmt->bind_param("ssss", $name, $email, $phone, $message);
-
-  $name = "iqbal";
-  $email = "iqbal@gmail.com";
-  $phone = "81310946588";
-  $message = "Hallo!. Im Interesting";
   $stmt->execute();
+}
 
-echo "New records created successfully";
-
-$stmt->close();
 $conn->close();
-
 ?>
